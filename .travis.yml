@@ -46,7 +46,6 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  - if php -i | grep -q xdebug; then phpenv config-rm xdebug.ini; fi
   - composer self-update
   - composer --version
 
@@ -54,7 +53,7 @@ before_script:
   # Enables us to test dev-master
   - composer config minimum-stability dev
   # Installs nimut/typo3-complete
-  - composer require --dev nimut/typo3-complete=$TYPO3_VERSION
+  - if [$TYPO3_VERSION == "^7.6" ] compsoser require --dev typo3/cms=$TYPO3_VERSIOn; else composer require --dev nimut/typo3-complete=$TYPO3_VERSION; fi
   # Restore composer.json
   - git checkout composer.json;
   - export TYPO3_PATH_WEB=$PWD/.Build/Web;
