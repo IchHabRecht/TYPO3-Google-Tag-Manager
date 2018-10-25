@@ -46,6 +46,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
+  - if php -i | grep -q xdebug; then phpenv config-rm xdebug.ini; fi
   - composer self-update
   - composer --version
 
