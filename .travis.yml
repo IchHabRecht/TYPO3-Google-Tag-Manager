@@ -24,6 +24,8 @@ matrix:
   include:
     - php: 7.0
       env: TYPO3_VERSION=^7.6 COVERAGE=0 FUNCTIONAL=1
+    - php: 5.6
+      env: TYPO3_VERSION=^7.6 COVERAGE=0 FUNCTIONAL=1
     - php: 7.0
       env: TYPO3_VERSION=^8.7 COVERAGE=1 FUNCTIONAL=1
     - php: 7.2
@@ -50,8 +52,8 @@ before_install:
 before_script:
   # Enables us to test dev-master
   - composer config minimum-stability dev
-  # Installs TYPO3
-  - composer require --dev nimut/typo3-complete=$TYPO3_VERSION;
+  # Installs nimut/typo3-complete
+  - composer require --dev nimut/typo3-complete=$TYPO3_VERSION
   # Restore composer.json
   - git checkout composer.json;
   - export TYPO3_PATH_WEB=$PWD/.Build/Web;
