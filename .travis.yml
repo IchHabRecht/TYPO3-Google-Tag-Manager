@@ -53,7 +53,7 @@ before_script:
   # Enables us to test dev-master
   - composer config minimum-stability dev
   # Installs nimut/typo3-complete
-  - if [ "$TYPO3_VERSION" == "^7.6" ]; then compsoser require --dev typo3/cms=$TYPO3_VERSION; else composer require --dev nimut/typo3-complete=$TYPO3_VERSION; fi
+  - if [ "$TYPO3_VERSION" == "^7.6" ]; then composer require --dev typo3/cms=$TYPO3_VERSION; else composer require --dev nimut/typo3-complete=$TYPO3_VERSION; fi
   # Restore composer.json
   - git checkout composer.json;
   - export TYPO3_PATH_WEB=$PWD/.Build/Web;
